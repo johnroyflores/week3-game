@@ -7,10 +7,10 @@ document.getElementById("lettersGuessed").innerHTML = "Letters guessed:";>
 
 //Object containing the words to be guessed
 var game = {
-        words: ["helvetica", "comic sans", "courier", "impact", "arial","times new roman","webdings","wingdings"],
+        words: ["helvetica", "comic sans", "courier", "impact", "arial","times new roman","webdings"],
         wins: 0,
         guessesLeft: 10, 
-        fontStyle: ["", "'Comic Sans MS', cursive, sans-serif","Courier, monospace","Impact, Charcoal, sans-serif","'Arial Black', Gadget, sans-serif","'Times New Roman', Times, serif","Webdings, sans-serif","'Zapf Dingbats', sans-serif"]
+        fontStyle: ["", "'Comic Sans MS', cursive, sans-serif","Courier, monospace","Impact, Charcoal, sans-serif","'Arial Black', Gadget, sans-serif","'Times New Roman', Times, serif","Webdings, sans-serif"]
     }
     //Declaring txt as global
 var blanks = "___";
@@ -55,7 +55,10 @@ function setCharAt(str, index, chr) {
 function takeGuess() {
 	replaceBlanks(game.words[j].length, "_");
     document.onkeyup = function(event) {
+    	
+    	
         var userLetter = String.fromCharCode(event.keyCode).toLowerCase();
+
         for (var i = 0;i < game.words[j].length; i++) {
         	if(game.words[j].charAt(i)==" "){
         	blanks = setCharAt(blanks, i, " ");
@@ -72,16 +75,23 @@ function takeGuess() {
         		//document.getElementById("").innerHTML = dashes;
         		j++;
         		game.wins++;
+        		game.guessesLeft = 10;
         		document.getElementById('wins').innerHTML = "Wins: " + game.wins;
         		setTimeout(function(){replaceBlanks(game.words[j].length, "_");},1000);
         		setTimeout(function(){el.style.fontFamily = game.fontStyle[j];},1000);
         		document.getElementById("lettersGuessed").innerHTML = "";
         		
         	}
+        	if(game.guessesLeft<=0){
+        		document.getElementById("wordBeingGuessed").innerHTML = "GAME OVER";
+        		return;
+        	}
     }
     	//if the letter is not in the word, place userLetter in lettersGuessed
     	if(blanks.indexOf(userLetter) == -1){
     		alreadyGuessed+=userLetter;
+    		game.guessesLeft--;
+    		document.getElementById("guessesLeft").innerHTML = "Guesses Left: " +game.guessesLeft;
 
     		if(alreadyGuessed.indexOf(userLetter) != -1){
     			document.getElementById("lettersGuessed").innerHTML += userLetter;
