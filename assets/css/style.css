@@ -1,0 +1,87 @@
+* {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.container {
+    margin-bottom: 200px;
+}
+
+#gameTitleBig {
+    font-size: 72px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 600;
+}
+
+#gameTitleNeue {
+    font-size: 72px;
+    font-weight: 100;
+}
+
+.gameTitle {
+    text-align: center;
+    letter-spacing: 1.5;
+}
+
+#startBox {
+    position: absolute;
+    left: 0;
+    right:0;
+    border: 4px solid black;
+    height: 550px;
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    z-index: 2;
+    background: white;
+    /*visibility: hidden;*/
+}
+
+#gameBox {
+    position: absolute;
+    right:0;
+    left:0;
+    border: 4px solid black;
+    height: 550px;
+    width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    z-index: -1;
+    margin-bottom: 80px;
+}
+
+#scoreBox {
+    position: relative;
+    border: 3px solid black;
+    width: 200px;
+    height: 105px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 2.5;
+    z-index: -1;
+}
+
+#gameplayArea{
+	position: absolute;
+	left:0;
+	bottom: 0;
+	text-align: center;
+	font-weight: 500;
+	font-size: 40px;
+	line-height: .5
+	padding-top:20px;
+	height:300px;
+	width:595px;
+	z-index: -1;
+	/*border:2px solid black;*/
+}
+
+#wordBeingGuessed{
+	letter-spacing: 15px;
+}
+
+#lettersGuessed {
+	letter-spacing: 15px;
+	line-height: .1;
+}
